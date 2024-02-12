@@ -1,30 +1,25 @@
 const express = require ("express")
 const router = express.Router()
-voitures = [{id:1,name:"clio"},{id:2,name:"megane"},{id:3,name:"range"}]
+const voitures = [{id:1,name:"clio"},{id:2,name:"megane"},{id:3,name:"range"}]
 
-router.post('/add', (req, res) => {
+  router.get('/voi/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    console.log (id ) 
+    const v1 = voitures.find(e => e.id === id )
+     res.json(v1) ;
+  });   
 
+router.delete('/remove/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    
+    let voitures = array.filter(item => item.id !== id);
+     res.json(voitures) ;
   });
   
   router.get('/all', (req, res) => {
       res.json(voitures) ; 
   });
 
-  router.get('/delete/:id ', (req, res) => {
-    const id = parseInt(req.params["id "]);
-voitures.array.forEach(element => {
-    if (element.id === id ) {
-        voitures.filter(e=> e.id != id  );
-    }
-});
-      
-  });
-  router.get('/vbyid/:id ', (req, res) => {
-    const id = parseInt(req.params["id "]);
-const v1 = voitures.find(e => e.id === id )
-res.json(v1) ;
-
-  });   
 
 
   module.exports = router
