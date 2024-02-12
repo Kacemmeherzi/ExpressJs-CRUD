@@ -16,8 +16,8 @@ router.delete('/remove/:id', (req, res) => {
      res.json(voitures) ;
   });
   
-  router.get('/all', (req, res) => {
-      res.json(voitures) ; 
+  router.get('/update/:id', (req, res) => {
+
   });
 
 
